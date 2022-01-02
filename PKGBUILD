@@ -1,3 +1,9 @@
+# sudo pacman -U ./PID1-r9.fac91c6-1-any.pkg.tar.zst
+# [dgnet@archlinux DGnet_ALP_ID1]$ source /home/dgnet/dgnet_programs/PID1/venv/bin/activate
+# /python3.9/site-packages/github/Requester.py", line 353,
+
+
+
 # Maintainer: dgnet <dgnet@dgnet.com>
 # Contributor: andriy <andriy@dgnet.cloud>
 # https://wiki.archlinux.org/title/creating_packages
@@ -11,7 +17,7 @@ arch=('any')
 url="https://github.com/andriykutsevol/DGnet_Dist_PID1.git"
 license=('')
 # Note: Dependencies from setup.py must be defined in the depends array otherwise they will not be installed.
-depends=("python-pygithub")
+# depends=("python-pygithub")
 # makedepends=('git')
 # checkdepends=('python-jaraco.envs' 'python-jaraco.path' 'python-mock' 'python-pip'
 #               'python-pytest-fixture-config' 'python-pytest-flake8' 'python-pytest-virtualenv'
@@ -53,12 +59,14 @@ package() {
   cd $pkgdir/home/dgnet/dgnet_programs/PID1
   python3 -m venv ./venv
   source ./venv/bin/activate
+  pip install --upgrade pip
   pip install PyGithub
 	
   cd "$srcdir/$pkgname"
   # cp -R ./* $pkgdir/home/dgnet/dgnet_programs/PID1
   # this will create an .egg file inside venv's site-packages
-  python3 ../../setup.py install --root="$pkgdir/home/dgnet/dgnet_programs/PID1" --optimize=1 --skip-build
+  # python3 ../../setup.py install --root="$pkgdir" --optimize=1 --skip-build
+  python3 ../../setup.py install --optimize=1 --skip-build
 }
 
 
