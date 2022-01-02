@@ -1,6 +1,7 @@
 # sudo pacman -U ./PID1-r9.fac91c6-1-any.pkg.tar.zst
 # [dgnet@archlinux DGnet_ALP_ID1]$ source /home/dgnet/dgnet_programs/PID1/venv/bin/activate
-# /python3.9/site-packages/github/Requester.py", line 353,
+# (venv) [dgnet@archlinux ~]$ python -m PID1
+
 
 
 
