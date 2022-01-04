@@ -61,6 +61,7 @@ package() {
   python3 -m venv ./venv
   source ./venv/bin/activate
   pip install --upgrade pip
+  pip install wheel
   cd "$srcdir/$pkgname"
   pip wheel . -w wheels -r requirements.txt
   python -m pip install --force-reinstall ./wheels/*.whl
