@@ -61,13 +61,9 @@ package() {
   python3 -m venv ./venv
   source ./venv/bin/activate
   pip install --upgrade pip
-  pip install PyGithub
-	
   cd "$srcdir/$pkgname"
-  # cp -R ./* $pkgdir/home/dgnet/dgnet_programs/PID1
-  # this will create an .egg file inside venv's site-packages
-  # python3 ../../setup.py install --root="$pkgdir" --optimize=1 --skip-build
-  python3 ../../setup.py install --optimize=1 --skip-build
+  pip wheel . -w wheels -r requirements.txt
+  python -m pip install --force-reinstall ./wheels/*.whl
 }
 
 
